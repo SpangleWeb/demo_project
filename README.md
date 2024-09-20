@@ -20,31 +20,34 @@ The project is divided into two main parts:
 
 1. **Clone the repository:**
 
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/SpangleWeb/demo_project.git
    cd your-repo
 
 2. **Install dependencies for the frontend:**
 
-   cd my-react-app
-   yarn install
+   cd meq
+   yarn
+
+-
 
 3. **Install dependencies for the backend:**
 
-   cd ../my-express-backend
-   yarn install
+   cd ../server
+   yarn
 
 ### Running the Application
 
 1. **Start the backend server:**
 
-   cd my-express-backend
-   node index.js
+   cd server
+   yarn dev
 
 2. **Start the frontend development server:**
 
-   cd ../my-react-app
-   yarn start
+   cd ../meq
+   yarn dev
 
 3. **Open the app in your browser:**
 
-   The React app will be running at `http://localhost:3000` and the Express backend at `http://localhost:5000`.
+   The React app will be running at `http://localhost:5173/` and the Express backend at `http://localhost:5002`.
+   This can be customised via the .env attached.
