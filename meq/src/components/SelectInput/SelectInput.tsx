@@ -6,12 +6,13 @@ type SelectInputProps = {
   onChange: (event: SelectChangeEvent<string>) => void;
   options: Array<{ label: string; value: string }>;
   selectId: string;
+  label: string;
 };
 
-export const SelectInput: FC<SelectInputProps> = ({ value, onChange, options, selectId }) => {
+export const SelectInput: FC<SelectInputProps> = ({ value, onChange, options, selectId, label }) => {
   return (
     <FormControl fullWidth>
-      <InputLabel id={selectId}>Select Option</InputLabel>
+      <InputLabel id={selectId}>{label}</InputLabel>
       <Select
         labelId={selectId}
         value={value}

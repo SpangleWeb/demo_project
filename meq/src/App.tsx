@@ -78,6 +78,7 @@ const App = () => {
                 onChange={handleChangeOptionOne} 
                 options={filteredOptionsForFirstSelect} 
                 selectId="select-1"
+                label="X Axis"
               />
             </Box>
             <Box width="30%" ml="24px">
@@ -86,6 +87,7 @@ const App = () => {
                 onChange={handleChangeOptionTwo} 
                 options={filteredOptionsForSecondSelect} 
                 selectId="select-2" 
+                label="Y Axis"
               />
             </Box>
           </Stack>
