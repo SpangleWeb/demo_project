@@ -8,6 +8,22 @@ import cors from 'cors';
 // Load environment variables
 dotenv.config();
 
+/**
+ * I took advantage of using environemnt variables
+ * I did this because when time comes to deploy the api, I can use
+ * these env variables to set things like the api url, the port and also
+ * work on the cors
+ */
+
+/**
+ * I thought about splitting up the routes and importing them
+ * This can allow you to do things, like pass different middleware to each route
+ * Things you might do this for are validation, authentication etc
+ * 
+ * I did not do this here as it was a pretty simple get request, but if I was to expand on the api,
+ * I would do this.
+ */
+
 const app = express();
 const port = process.env.PORT || 5001;
 const url = process.env.API_URL;
@@ -19,6 +35,8 @@ app.use(cors({
   origin: `${frontEndUrl}${frontEndPort}`,
   methods: ['GET', 'POST'],
 }));
+
+// We want to return json
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -44,12 +62,14 @@ app.get('/data/pic/:pic', (req: Request, res: Response) => {
   if (filteredData.length > 0) {
     res.json(filteredData);
   } else {
+    // return error if we did not find the pic provided
     res.status(404).json({ message: 'Data not found for the specified PIC.' });
   }
 });
 
-// Root endpoint
+// Default endpoint
 app.get('/', (req: Request, res: Response) => {
+  // might as well return beef haha
   res.send('🥩');
 });
 
