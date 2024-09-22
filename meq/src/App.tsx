@@ -16,17 +16,30 @@ type SelectOption = {
   value: string;
 }
 
+/**
+ * 
+ * I love using mui for react apps. They make development rapid.
+ */
+
 const App = () => {
   const [selectedValueOptionOne, setSelectedValueOptionOne] = useState<string>('HSCW');
   const [selectedValueOptionTwo, setSelectedValueOptionTwo] = useState<string>('IMF');
 
+  /**
+   * I like to make hooks to fetch data, which we can then return data, loading and error
+   * This makes it easy to do what I have done below, where based on the state of this request
+   * we can return one thing or another
+   */
   const { data, loading, error } = useFetchAllData();
 
+  // This could have been a useCallback, just opted to use this regular function
+  // instead of a callback as what we are doing in the functions is not too expensive.
   const handleChangeOptionOne = (event: SelectChangeEvent<string>) => {
     setSelectedValueOptionOne(event.target.value);
     // Reset selected value of option two if it matches the new option one
     if (event.target.value === selectedValueOptionTwo) {
-      setSelectedValueOptionTwo(''); // Or set to a default value
+      // Or set to a default value (should not happen, but better safe)
+      setSelectedValueOptionTwo('');
     }
   };
 
@@ -46,6 +59,7 @@ const App = () => {
     );
   }
 
+  // Return early if there is an error
   if (error) {
     return (
       <Stack justifyContent="center" alignItems="center" height="100%">

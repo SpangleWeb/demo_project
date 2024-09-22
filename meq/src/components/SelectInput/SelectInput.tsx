@@ -9,6 +9,11 @@ type SelectInputProps = {
   label: string;
 };
 
+/**
+ * 
+ * Created a pretty simple select component
+ * This was going to be used a couple times, so split it out.
+ */
 export const SelectInput: FC<SelectInputProps> = ({ value, onChange, options, selectId, label }) => {
   return (
     <FormControl fullWidth>

@@ -9,6 +9,13 @@ type ScatterChartProps = {
   yAxisField: string;
 };
 
+/**
+ * Found this component a little tricky initially, had to spend a bit of time reading the docs
+ * The jsFiddle demo only had two items, so I had to work out how to add more
+ * and what this chart was trying to display
+ *
+ */
+
 export const ScatterChart: FC<ScatterChartProps> = ({ allData, xAxisField, yAxisField }) => {
   
   const scatterData = allData.map(
